@@ -19,7 +19,7 @@ public class Job {
     private String company;
     private int Cid;
     private int Jid;
-    
+
     public int getJid() {
         return Jid;
     }
@@ -27,7 +27,7 @@ public class Job {
     public void setJid(int jid) {
         Jid = jid;
     }
-    
+
     public int getCid() {
         return Cid;
     }

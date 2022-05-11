@@ -8,14 +8,12 @@ package com.jobportal.project.Job.dao;
  *
  * @author RIX
  */
-import java.util.ArrayList;
-import java.util.List;
-
 import com.jobportal.project.Job.Bean.Job;
 import com.jobportal.project.Job.Bean.TotalApplication;
 import com.jobportal.project.sql.SqlConnection;
-
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class JobDao {
 
@@ -23,7 +21,7 @@ public class JobDao {
 
     /**
      * List Jobs
-     * 
+     *
      * @return Job List
      * @throws SQLException
      */
@@ -55,7 +53,7 @@ public class JobDao {
 
     /**
      * Get job by ID
-     * 
+     *
      * @param jid
      * @return Job object
      */
@@ -87,7 +85,7 @@ public class JobDao {
 
     /**
      * Apply user to job
-     * 
+     *
      * @param Jid
      * @param Eid
      * @return status code
@@ -120,7 +118,7 @@ public class JobDao {
 
     /**
      * Unapply from job
-     * 
+     *
      * @param Jid
      * @param Eid
      * @return
@@ -170,7 +168,7 @@ public class JobDao {
 
     /**
      * Accept or deny application
-     * 
+     *
      * @param jid
      * @param eid
      * @param approve
@@ -195,7 +193,7 @@ public class JobDao {
 
     /**
      * Delete Job
-     * 
+     *
      * @param jid
      * @return status code
      */

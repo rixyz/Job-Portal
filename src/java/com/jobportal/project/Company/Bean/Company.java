@@ -51,5 +51,5 @@ public class Company {
     public void setCid(String Cid) {
         this.Cid = Cid;
     }
-    
+
 }

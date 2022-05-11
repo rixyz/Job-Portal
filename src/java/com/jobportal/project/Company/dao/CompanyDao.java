@@ -1,8 +1,8 @@
 package com.jobportal.project.Company.dao;
 
-import java.sql.*;
-import com.jobportal.project.sql.SqlConnection;
 import com.jobportal.project.Company.Bean.Company;
+import com.jobportal.project.sql.SqlConnection;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,9 +13,10 @@ import java.util.List;
 public class CompanyDao {
 
     static Connection con = null;
+
     /**
      * Register New Company
-     * 
+     *
      * @param username
      * @param password
      * @param web
@@ -45,10 +46,10 @@ public class CompanyDao {
         return 0;
 
     }
-    
+
     /**
      * List Companies
-     * 
+     *
      * @return List of Company
      * @throws SQLException
      */
@@ -77,7 +78,7 @@ public class CompanyDao {
 
     /**
      * Get company detail by ID
-     * 
+     *
      * @param cid
      * @return Company object
      */
@@ -104,7 +105,7 @@ public class CompanyDao {
 
     /**
      * Get company detail by email
-     * 
+     *
      * @param Uemail
      * @return Company Object
      */
@@ -128,10 +129,10 @@ public class CompanyDao {
         }
         return c;
     }
-    
+
     /**
-     *Delete a Company
-     * 
+     * Delete a Company
+     *
      * @param cid
      * @return status code
      */

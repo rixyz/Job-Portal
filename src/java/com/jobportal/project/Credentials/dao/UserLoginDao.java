@@ -4,10 +4,9 @@
  */
 package com.jobportal.project.Credentials.dao;
 
-import java.sql.*;
-
 import com.jobportal.project.Employee.Bean.Employee;
 import com.jobportal.project.sql.SqlConnection;
+import java.sql.*;
 import javax.servlet.http.HttpSession;
 
 /**
@@ -21,7 +20,7 @@ public class UserLoginDao {
 
     /**
      * Check employee login
-     * 
+     *
      * @param email
      * @param pass
      * @param session

@@ -253,35 +253,35 @@
                                             <%=c.getCname()%>
                                         </h1>
                                         <div class="w-full flex-none text-sm font-medium text-slate-700 mt-2">
-                                                <table>
-                                                    <tr>
-                                                        <td>Post</td>
-                                                        <td>:</td>
-                                                        <td><%=j.getSkills()%></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Location</td>
-                                                        <td>:</td>
-                                                        <td><%=j.getLocation()%></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Vacancy</td>
-                                                        <td>:</td>
-                                                        <td><%=j.getVacancy()%></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Salary</td>
-                                                        <td>:</td>
-                                                        <td><%=j.getSalary()%></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Interview Location</td>
-                                                        <td>:</td>
-                                                        <td><%=j.getIplace()%></td>
-                                                    </tr>
-                                                </table>
+                                            <table>
+                                                <tr>
+                                                    <td>Post</td>
+                                                    <td>:</td>
+                                                    <td><%=j.getSkills()%></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Location</td>
+                                                    <td>:</td>
+                                                    <td><%=j.getLocation()%></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Vacancy</td>
+                                                    <td>:</td>
+                                                    <td><%=j.getVacancy()%></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Salary</td>
+                                                    <td>:</td>
+                                                    <td><%=j.getSalary()%></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Interview Location</td>
+                                                    <td>:</td>
+                                                    <td><%=j.getIplace()%></td>
+                                                </tr>
+                                            </table>
 
-                                            </div>
+                                        </div>
                                     </div>
                                     <div class="flex space-x-4 my-6 text-sm font-medium">
                                         <div class="flex-auto flex space-x-4">

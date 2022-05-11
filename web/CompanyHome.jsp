@@ -94,7 +94,7 @@
                 <div class="flex justify-center text-3xl strong font-bold m-5 text-white">
                     Welcome to Job Posting Website
                 </div>
-                
+
             </div>
         </div>
     </body>

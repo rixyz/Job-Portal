@@ -4,6 +4,8 @@
  */
 package com.jobportal.project.Employee;
 
+import com.jobportal.project.Employee.Bean.Employee;
+import com.jobportal.project.Employee.dao.EmployeeDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -13,9 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.jobportal.project.Employee.dao.EmployeeDao;
-import com.jobportal.project.Employee.Bean.Employee;
-
 /**
  *
  * @author Dell
@@ -24,22 +23,22 @@ import com.jobportal.project.Employee.Bean.Employee;
 public class UserUpdated extends HttpServlet {
 
     /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
+     * Handles the HTTP <code>POST</code> method.
      *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         System.out.println("\nServlet Called: UserUpdated");
         response.setContentType("text/html;charset=UTF-8");
-        
+
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession(false);
-        
+
         String eid = (String) session.getAttribute("ID");
         String Umail = request.getParameter("email");
         String Ufname = request.getParameter("firstName");
@@ -61,7 +60,7 @@ public class UserUpdated extends HttpServlet {
         e.setExp(exp);
         e.setSkill(skill);
         e.setNumber(phone);
-        
+
         System.out.println("Dao.update called");
         int status = EmployeeDao.update(e, Umail, eid);
         if (status > 0) {
@@ -72,35 +71,6 @@ public class UserUpdated extends HttpServlet {
             response.setHeader("Refresh", "1;UserProfile.jsp");
         }
         out.close();
-    }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
     }
 
     /**

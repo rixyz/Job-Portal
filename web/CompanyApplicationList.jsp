@@ -161,7 +161,7 @@
                                                         Accept
                                                     </button>
                                                 </form>
-                                                    <form action="UpdateApplication" method="post">
+                                                <form action="UpdateApplication" method="post">
                                                     <input type="text" name="eid" value="<%=e.getID()%>" hidden>
                                                     <input type="text" name="jid" value="<%=j.getJid()%>" hidden>
                                                     <input type="text" name="approve" value="NO" hidden>

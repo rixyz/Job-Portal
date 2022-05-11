@@ -4,12 +4,11 @@
  */
 package com.jobportal.project.Credentials.dao;
 
+import com.jobportal.project.Company.Bean.Company;
 import com.jobportal.project.Company.dao.CompanyDao;
+import com.jobportal.project.sql.SqlConnection;
 import java.sql.*;
 import javax.servlet.http.HttpSession;
-
-import com.jobportal.project.Company.Bean.Company;
-import com.jobportal.project.sql.SqlConnection;
 
 /**
  *
@@ -21,7 +20,7 @@ public class CompanyLoginDao {
 
     /**
      * Check COmpany Login
-     * 
+     *
      * @param email
      * @param pass
      * @param session

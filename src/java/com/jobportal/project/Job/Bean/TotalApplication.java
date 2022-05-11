@@ -14,7 +14,6 @@ public class TotalApplication {
     private String Eid;
     private String Approved;
 
-    
     public String getApproved() {
         return Approved;
     }

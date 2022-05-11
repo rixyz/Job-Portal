@@ -3,10 +3,8 @@ package com.jobportal.project.Employee.dao;
 import java.sql.*;
 import com.jobportal.project.sql.SqlConnection;
 import com.jobportal.project.Employee.Bean.Employee;
-import com.jobportal.project.Job.Bean.Job;
 import java.util.ArrayList;
 import java.util.List;
-import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -17,10 +15,9 @@ public class EmployeeDao {
     static Connection con = null;
 
     //
-
     /**
      * Register new employee
-     * 
+     *
      * @param Uemail
      * @param Ufname
      * @param Ulname
@@ -59,7 +56,7 @@ public class EmployeeDao {
 
     /**
      * Update employee Detail
-     * 
+     *
      * @param e
      * @param Umail
      * @param eid
@@ -97,7 +94,7 @@ public class EmployeeDao {
 
     /**
      * List employee
-     * 
+     *
      * @return employee list
      * @throws SQLException
      */
@@ -131,7 +128,7 @@ public class EmployeeDao {
 
     /**
      * Get employee by id
-     * 
+     *
      * @param eid
      * @return employee object
      */
@@ -162,10 +159,10 @@ public class EmployeeDao {
         }
         return e;
     }
-    
+
     /**
-     *Reset employee Password
-     * 
+     * Reset employee Password
+     *
      * @param email
      * @param phone
      * @param pass
@@ -193,7 +190,7 @@ public class EmployeeDao {
 
     /**
      * Delete employee
-     * 
+     *
      * @param eid
      * @return status code
      */

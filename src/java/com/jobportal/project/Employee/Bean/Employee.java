@@ -11,9 +11,8 @@ public class Employee {
 //        return "Employee [Uemail=" + Uemail + ", Ufname=" + Ufname + ", Ulname=" + Ulname + ", UserName=" + UserName
 //                + ", Password=" + Password + ", gen=" + gen + ", exp=" + exp + ", skill=" + skill + "]";
 //    }
-
     private String Uemail, Ufname, Ulname, UserName, Password, gen, exp, skill, id, Number;
-    
+
     public String getNumber() {
         return Number;
     }
@@ -21,7 +20,7 @@ public class Employee {
     public void setNumber(String number) {
         Number = number;
     }
-    
+
     public String getUemail() {
         return Uemail;
     }
