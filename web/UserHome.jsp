@@ -249,18 +249,18 @@
                 <div class="m-1 border-2 border-white rounded-lg mt-5 w-fit p-2">
                     <div>
                         <div class="flex justify-center text-3xl strong font-bold m-5 text-white">Recently added job</div>
-                        <div class="leftmar m-1 flex flex-wrap">
+                        <div class="leftmar m-1 grid grid-cols-2">
                             <%
                                 List<Job> J = (List<Job>) request.getAttribute("JobList");
-                                int count= 0;                       
-                                if(!J.isEmpty()){
+                                int count = 0;
+                                if (!J.isEmpty()) {
                                     for (Job j : J) {
                                         count++;
-                                        if (count==3) {
+                                        if (count == 3) {
                                             break;
                                         }
-                                    
-                                        Company c=CompanyDao.getCompanyById(j.getCompany());
+
+                                        Company c = CompanyDao.getCompanyById(j.getCompany());
                             %>
                             <div class="flex font-sans bg-white m-1">
                                 <div class="flex-none w-48 relative">
@@ -291,7 +291,8 @@
                                 </form>
                             </div>
                             <%
-                                }} else {
+                                }
+                            } else {
                             %>
                             <div class="flex justify-center text-2xl strong m-5 text-white">No Active Jobs</div>
                             <%
@@ -304,16 +305,15 @@
                 <div class="m-1 border-2 border-white rounded-lg mt-5 w-fit p-2">
                     <div>
                         <div class="flex justify-center text-3xl strong font-bold m-5 text-white">Applied Jobs</div>
-                        <div class="leftmar m-1 flex flex-wrap">
+                        <div class="leftmar m-1 grid grid-cols-2">
                             <%
-                   
-                                List<TotalApplication> A = (List<TotalApplication>) request.getAttribute("AppliedList");    
-                                if(!A.isEmpty()){
+                                List<TotalApplication> A = (List<TotalApplication>) request.getAttribute("AppliedList");
+                                if (!A.isEmpty()) {
                                     for (TotalApplication a : A) {
-                                        Job j=JobDao.getJobById(a.getJid());
-                                        Company c=CompanyDao.getCompanyById(j.getCompany());
-                                        
-                                     
+                                        Job j = JobDao.getJobById(a.getJid());
+                                        Company c = CompanyDao.getCompanyById(j.getCompany());
+
+
                             %>
                             <div class="flex font-sans bg-white m-1">
                                 <div class="flex-none w-48 relative">
@@ -329,7 +329,7 @@
                                             <%=j.getSkills()%>
                                         </div>
                                     </div>
-                                    <% if(a.getApproved().equals("YES")){ %>
+                                    <% if (a.getApproved().equals("YES")) {%>
                                     <div class="flex space-x-4 mt-2 mb-6 text-sm font-medium">
                                         <div class="flex-auto flex space-x-4 w-5">
                                             Accepted! Waiting for Interview at <%=j.getIplace()%>
@@ -340,7 +340,8 @@
                             </div>
 
                             <%
-                                }} else {
+                                }
+                            } else {
                             %>
                             <div class="flex justify-center text-2xl strong m-5 text-white">No Applied Jobs</div>
                             <%

@@ -47,10 +47,10 @@ public class ForgotPassword extends HttpServlet {
             //Check status code
             if (status > 0) {
                 out.println("<script>alert('Password changed successfully.')</script>");
-                response.setHeader("Refresh", "1;ForgotPassword.jsp");
+                response.setHeader("Refresh", "1;index.jsp");
             } else {
                 out.println("<script>alert('Failed to change Password. Check and resubmit')</script>");
-                response.setHeader("Refresh", "1;ForgotPassword.jsp");
+                response.setHeader("Refresh", "1;index.jsp");
             }
         }
     }

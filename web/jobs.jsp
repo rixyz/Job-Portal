@@ -209,7 +209,7 @@
                 <div class="m-1 border-2 border-white rounded-lg mt-5 w-fit p-2">
                     <div>
                         <div class="flex justify-center text-3xl strong font-bold m-5 text-white">Jobs List</div>
-                        <div class="leftmar m-1 flex flex-wrap">
+                        <div class="leftmar m-1 grid grid-cols-2">
                             <%
                                 List<Job> J = (List<Job>) request.getAttribute("JobList");
                                                         

@@ -32,7 +32,7 @@ public class UserLogIn extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         System.out.println("\nServlet Called: LogIn");
         response.setContentType("text/html;charset=UTF-8");
@@ -46,14 +46,16 @@ public class UserLogIn extends HttpServlet {
 
         if (dao.validate(email, pass, session)) {
             String ID = (String) session.getAttribute("ID");
-            String type = (String) session.getAttribute("Type");
 
             if (email.equals("admin@jobportal.com")) {
-                System.out.println("ID: " + ID + "\nType: " + type);
                 session.setAttribute("Type", "Admin");
-            } else {
+                String type = (String) session.getAttribute("Type");
                 System.out.println("ID: " + ID + "\nType: " + type);
+            } else {
                 session.setAttribute("Type", "Employee");
+                String type = (String) session.getAttribute("Type");
+                System.out.println("ID: " + ID + "\nType: " + type);
+
             }
             request.getRequestDispatcher("Home").forward(request, response);
 
