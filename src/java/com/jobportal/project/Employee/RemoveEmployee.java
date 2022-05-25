@@ -34,20 +34,27 @@ public class RemoveEmployee extends HttpServlet {
         System.out.println("\nServlet Called: RemoveEmployee");
         response.setContentType("text/html;charset=UTF-8");
 
-        PrintWriter out = response.getWriter();
-        EmployeeDao e = new EmployeeDao();
-        String eid = request.getParameter("eid");
-
-        if (e.deleteEmployee(eid) == 1) {
-            out.println("<script>alert('Delete Successfully.')</script>");
-            response.setHeader("Refresh", "1;ListEmployees");
-        } else {
-            out.println("<script>alert('Delete failed')</script>");
-            response.setHeader("Refresh", "1;ListEmployees");
+        try (PrintWriter out = response.getWriter()) {
+            EmployeeDao e = new EmployeeDao();
+            String eid = request.getParameter("eid");
+            
+            if (e.deleteEmployee(eid) == 1) {
+                out.println("<script>alert('Delete Successfully.')</script>");
+                response.setHeader("Refresh", "1;ListEmployees");
+            } else {
+                out.println("<script>alert('Delete failed')</script>");
+                response.setHeader("Refresh", "1;ListEmployees");
+            }
         }
-        out.close();
     }
 
+    @Override
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
+         throws ServletException, java.io.IOException {
+
+         throw new ServletException("GET method used with " +
+            getClass( ).getName( )+": POST method required.");
+      }
     /**
      * Returns a short description of the servlet.
      *

@@ -7,6 +7,8 @@
 <%@page import="com.jobportal.project.Job.Bean.TotalApplication"%>
 <%@page import="com.jobportal.project.Company.dao.CompanyDao"%>
 <%@page import="com.jobportal.project.Company.Bean.Company"%>
+<%@page import="com.jobportal.project.Employee.dao.EmployeeDao"%>
+<%@page import="com.jobportal.project.Employee.Bean.Employee"%>
 <!DOCTYPE html>
 <html>
 
@@ -217,7 +219,11 @@
                             <img src="assets/img/user/profile.png" alt="" class="w-20" />
                         </div>
                         <div class="text-center my-2 mx-5">
-                            <h1 class="text-2xl font-bold">Name</h1>
+                            <%
+                                String id = (String) session.getAttribute("ID");
+                                Employee e = EmployeeDao.getEmployeeById(id);
+                            %>
+                            <h1 class="text-2xl font-bold"><%=e.getUfname()%> <%=e.getUlname()%></h1>
                             <h2 class="text-sm">Unemployed | Student</h2>
                             <table class="table mb-0 mt-4">
                                 <tbody>

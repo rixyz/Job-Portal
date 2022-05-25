@@ -147,9 +147,13 @@
                                     <td class="px-6 py-4">
                                         <%=j.getDeadline()%>
                                     </td>
-
                                     <td class="px-6 py-4 text-right">
-                                        <a href="RemoveJob?jid=<%=j.getJid()%>" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
+                                        <form method="post" action="RemoveJob">
+                                            <input type="hidden" name="jid" value=<%=j.getJid()%> /> 
+                                            <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                                               onclick="this.parentNode.submit();">
+                                                Delete</a>
+                                        </form>
                                     </td>
                                 </tr>
                             </tbody>

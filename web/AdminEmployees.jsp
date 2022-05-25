@@ -157,7 +157,12 @@
                                         <%=e.getGen()%>
                                     </td>
                                     <td class="px-6 py-4 text-right">
-                                        <a href="RemoveEmployee?eid=<%=e.getID()%>" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
+                                        <form method="post" action="RemoveEmployee">
+                                            <input type="hidden" name="eid" value=<%=e.getID()%> /> 
+                                            <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                                               onclick="this.parentNode.submit();">
+                                                Delete</a>
+                                        </form>
                                     </td>
                                 </tr>
                             </tbody>

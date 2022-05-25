@@ -1,3 +1,5 @@
+<%@page import="com.jobportal.project.Employee.dao.EmployeeDao"%>
+<%@page import="com.jobportal.project.Employee.Bean.Employee"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
@@ -205,7 +207,11 @@
                             <img src="assets/img/user/profile.png" alt="" class="w-20" />
                         </div>
                         <div class="text-center my-2 mx-5">
-                            <h1 class="text-2xl font-bold">Name</h1>
+                            <%
+                                String id = (String) session.getAttribute("ID");
+                                Employee e = EmployeeDao.getEmployeeById(id);
+                            %>
+                            <h1 class="text-2xl font-bold"><%=e.getUfname()%> <%=e.getUlname()%></h1>
                             <h2 class="text-sm">Unemployed | Student</h2>
                             <h2 class="text-sm m-2 mb-5">Update Profile</h2>
                             <h2 class="text-sm m-2 mb-5"><a href="UserAppliedJobs">Applied Job</a></h2>
@@ -228,7 +234,7 @@
                                 <label class="block text-grey-darker text-sm font-bold text-white" for="firstName">
                                     First Name
                                 </label>
-                                <input name="firstName"
+                                <input name="firstName" value="<%=e.getUfname()%>"
                                        class="shadow appearance-none border rounded py-2 px-3 text-grey-darker"
                                        id="firstName" type="text" placeholder="First" pattern="[a-zA-Z]+"
                                        title="Please enter Alphabets." required>
@@ -237,7 +243,7 @@
                                 <label class="block text-grey-darker text-sm font-bold text-white" for="lastName">
                                     Last Name
                                 </label>
-                                <input name="lastName"
+                                <input name="lastName" value="<%=e.getUlname()%>"
                                        class="shadow appearance-none border rounded py-2 px-3 text-grey-darker"
                                        id="lastName" type="text" placeholder="Last" pattern="[a-zA-Z]+"
                                        title="Please enter Alphabets" required>
@@ -247,19 +253,19 @@
                             <label class="block text-grey-darker text-sm font-bold mb-2 text-white" for="email">
                                 Email
                             </label>
-                            <input name="email"
+                            <input name="email" value="<%=e.getUemail()%>"
                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mb-2"
                                    id="email" type="email" placeholder="Email" required>
                             <label class="block text-grey-darker text-sm font-bold mb-2 text-white" for="phone">
                                 Phone
                             </label>
-                            <input name="phone"
+                            <input name="phone" value ="<%=e.getNumber()%>"
                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mb-2"
                                    id="phone" type="tel" placeholder="XXX-XXX-XXXX" required>
                             <label class="block text-grey-darker text-sm font-bold mb-2 text-white" for="userName">
                                 Username
                             </label>
-                            <input name="userName"
+                            <input name="userName" value ="<%=e.getUserName()%>"
                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mb-2"
                                    id="userName" type="text" placeholder="Username" required>
                             <label class="block text-grey-darker text-sm font-bold mb-2 text-white" for="passwd">
@@ -282,7 +288,7 @@
                             </div>
                             <label for="exp_in_years" class="text-grey-darker text-sm font-bold mb-2 text-white">Experience:
                             </label>
-                            <input name="exp_in_years" type="number" min="0"
+                            <input name="exp_in_years" type="number" min="0" value ="<%=e.getExp()%>"
                                    class="shadow appearance-none border border-red w-1/5 rounded text-grey-darker mb-3">
                             <div class="mb-3">
                                 <label class="block text-grey-darker text-sm font-bold mb-2 text-white">Preferred Industry</label>

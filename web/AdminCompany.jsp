@@ -91,8 +91,8 @@
                         <!-- Initialize Company Object to display -->
                         <%
                             List<Company> C = (List<Company>) request.getAttribute("CompanyList");
-                            System.out.println(C);              
-                            if(!C.isEmpty()){
+                            System.out.println(C);
+                            if (!C.isEmpty()) {
                         %>
                         <table class="m-3 w-full text-sm text-left text-gray-500 dark:text-gray-400">
                             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -132,12 +132,18 @@
                                         <%=c.getCemail()%>
                                     </td>
                                     <td class="px-6 py-4 text-right">
-                                        <a href="RemoveCompany?cid=<%=c.getCid()%>" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
+                                        <form method="post" action="RemoveCompany">
+                                            <input type="hidden" name="cid" value=<%=c.getCid()%> /> 
+                                            <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                                               onclick="this.parentNode.submit();">
+                                                Delete</a>
+                                        </form>
                                     </td>
                                 </tr>
                             </tbody>
                             <%
-                                }} else {
+                                }
+                            } else {
                             %>
                             <div class="flex justify-center text-2xl strong m-5 text-white">No Company</div>
                             <%
