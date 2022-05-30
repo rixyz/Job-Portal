@@ -16,6 +16,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="css/output.js"></script>
+    <script src="js/validate.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <!-- CSS here -->
     <link rel="stylesheet" href="boot/css/bootstrap.min.css">
@@ -45,10 +46,6 @@
                     </div>
                     <div class="hidden sm:block sm:ml-6">
                         <div class="flex space-x-4">
-                            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                            <!-- <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
-                                aria-current="page">User Portal</a> -->
-
                             <a href="#"
                                 class="text-slate-800 hover:text-cyan-400 px-3 py-2 rounded-md text-sm font-medium">
                                 Home</a>
@@ -61,9 +58,6 @@
                             <a href="#"
                                 class="text-slate-800 hover:text-cyan-400 px-3 py-2 rounded-md text-sm font-medium">
                                 Contact Us</a>
-
-                            <!-- <a href="#"
-                                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Calendar</a> -->
                         </div>
                     </div>
                 </div>
@@ -88,80 +82,165 @@
     </div>
     <script type="text/javascript" src="js/particles.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
-    <div class=" h-screen grid place-items-center">
-        <div class="bg-opacity-75 bg-white h-min flex flex-row  ">
-            <div class="border-2 rounded-md px-8 pt-6 pb-8 flex flex-col m-10 bg-red-100">
-                <div class="grid place-content-center m-1 mb-3">
-                    <h1 class="text-2xl font-bold">User Login</h1>
-                </div>
-                <form action="LogIn" method="post">
-                    <div class="mb-4">
-                        <label class="block text-grey-darker text-sm font-bold mb-2" for="email">
-                            Email
-                        </label>
-                        <div class="flex">
-                            <div
-                                class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-                                <i class="fas fa-user text-gray-400 text-lg"></i>
+    <div class="h-max grid place-items-center">
+        <div class="bg-opacity-75 bg-white h-min flex flex-row border-2 rounded-md my-20 mt-40">
+            <div class="border-r-2 my-16">
+                <div class="px-8 pb-8 flex flex-col mx-10 mb-10">
+                    <div class="grid place-content-center m-1 mb-3">
+                        <h1 class="text-2xl font-bold">User Login</h1>
+                    </div>
+                    <form action="LogIn" method="post">
+                        <div class="mb-4">
+                            <label class="block text-grey-darker text-sm font-bold mb-2" for="email">
+                                Email
+                            </label>
+                            <div class="flex">
+                                <div
+                                    class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                                    <i class="fas fa-user text-gray-400 text-lg"></i>
+                                </div>
+                                <input type="email" name="email" id="email" placeholder="Email" required
+                                    class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-cyan-400">
                             </div>
-                            <input type="email" name="email" id="email" placeholder="Email" required
-                                class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-cyan-400">
                         </div>
-                    </div>
-                    <div class="mb-6">
-                        <label class="block text-grey-darker text-sm font-bold mb-2" for="password">
-                            Password
-                        </label>
-                        <div class="flex">
-                            <div
-                                class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-                                <i class="fas fa-lock text-gray-400 text-lg"></i>
+                        <div class="mb-6">
+                            <label class="block text-grey-darker text-sm font-bold mb-2" for="password">
+                                Password
+                            </label>
+                            <div class="flex">
+                                <div
+                                    class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                                    <i class="fas fa-lock text-gray-400 text-lg"></i>
+                                </div>
+                                <input type="   password" name="password" id="password" placeholder="********" required
+                                    class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-cyan-400">
                             </div>
-                            <input type="   password" name="password" id="password" placeholder="********" required
-                                class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-cyan-400">
                         </div>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <input type="submit" value="Sign In"
-                            class="bg-cyan-400 hover:bg-cyan-800 text-white font-bold py-2 px-4 rounded">
-                    </div>
-                </form>
-                <p class="mt-2"> <a href="ForgotPa  ssword.jsp">Forgot Password?</a>.</p>
-            </div>
-            <div class="border-2 rounded-md px-8 pt-6 pb-8 flex flex-col m-10 bg-blue-100">
-                <div class="grid place-content-center m-1 mb-3">
-                    <h1 class="text-2xl font-bold">User Login</h1>
-                </div>
-                <form action="UserRegister" method="post">
-                    <div class="mb-4">
-                        <label class="block text-grey-darker text-sm font-bold mb-2" for="email">
-                            Email
-                        </label>    
-                        <div class="flex">
-                            <div
-                                class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-                                <i class="fas fa-user text-gray-400 text-lg"></i>
-                            </div>
-                            <input type="email" name="email" id="email" placeholder="Email" required
-                                class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-cyan-400">
+                        <div class="flex items-center justify-between">
+                            <input type="submit" value="Sign In"
+                                class="bg-cyan-400 hover:bg-cyan-800 text-white font-bold py-2 px-4 rounded">
                         </div>
-                    </div>
-                    <div class="mb-6">
-                        <label class="block text-grey-darker text-sm font-bold mb-2" for="password">
-                            Password
-                        </label>
-                        <div class="flex">
+                    </form>
+                    <p class="mt-2"> <a href="ForgotPassword.jsp" class="hover:text-black">Forgot Password?</a>.</p>
 
-                            <input type=" password" name="password" id="password" placeholder="********" required
-                                class="w-full p-2 rounded-lg border-2 border-gray-200 outline-none focus:border-cyan-400">
+                </div>
+            </div>
+            <div class="border-l-2 my-16">
+                <div class="px-8 pb-8 flex flex-col mx-10 mb-10">
+                    <div class="grid place-content-center m-1 mb-3">
+                        <h1 class="text-2xl font-bold">Register</h1>
+                    </div>
+                    <form action="UserRegister" method="post">
+                        <div class="flex gap-5 mb-6">
+                            <div class="flex flex-col">
+                                <label class="block text-grey-darker text-sm font-bold mb-2" for="firstName">
+                                    First Name
+                                </label>
+                                <input name="firstName"
+                                    class="w-full p-2 rounded-lg border-2 border-gray-200 outline-none focus:border-cyan-400"
+                                    id="firstName" type="text" placeholder="First" pattern="[a-zA-Z]+"
+                                    title="Please enter Alphabets." required>
+                            </div>
+                            <div class="flex flex-col">
+                                <label class="block text-grey-darker text-sm font-bold mb-2" for="lastName">
+                                    Last Name
+                                </label>
+                                <input name="lastName"
+                                    class="w-full p-2 rounded-lg border-2 border-gray-200 outline-none focus:border-cyan-400"
+                                    id="lastName" type="text" placeholder="Last" pattern="[a-zA-Z]+"
+                                    title="Please enter Alphabets" required>
+                            </div>
                         </div>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <input type="submit" value="Sign Up"
-                            class="bg-cyan-400 hover:bg-cyan-800 text-white font-bold py-2 px-4 rounded">
-                    </div>
-                </form>
-                <p class="mt-2"> <a href="ForgotPassword.jsp">Forgot Password?</a>.</p>
+                        <div class="mb-6">
+                            <label class="block text-grey-darker text-sm font-bold mb-2" for="email">
+                                Email
+                            </label>
+                            <input name="email"
+                                class="w-full p-2 rounded-lg border-2 border-gray-200 outline-none focus:border-cyan-400"
+                                id="email" type="email" placeholder="Email" required>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-grey-darker text-sm font-bold mb-2" for="phone">
+                                Phone
+                            </label>
+                            <input name="phone"
+                                class="w-full p-2 rounded-lg border-2 border-gray-200 outline-none focus:border-cyan-400"
+                                id="phone" type="tel" placeholder="XXX-XXX-XXXX" required pattern="^[0-9]{7,10}"
+                                title="Enter Valid phone number">
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-grey-darker text-sm font-bold mb-2" for="userName">
+                                Username
+                            </label>
+                            <input name="userName"
+                                class="w-full p-2 rounded-lg border-2 border-gray-200 outline-none focus:border-cyan-400"
+                                id="userName" type="text" placeholder="Username" required pattern=".{3,45}"
+                                title="3-45 letters">
+                        </div>
+                        <div class="mb-6">
+
+                            <label class="block text-grey-darker text-sm font-bold mb-2" for="password">
+                                Password
+                            </label>
+                            <input name="password"
+                                class="w-full p-2 rounded-lg border-2 border-gray-200 outline-none focus:border-cyan-400"
+                                id="password" type="password" placeholder="********" pattern=".{8,45}"
+                                title="8-45 letters" required>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-grey-darker text-sm font-bold mb-2" for="rep-password">
+                                Repeat Password
+                            </label>
+                            <input name="rep-password"
+                                class="w-full p-2 rounded-lg border-2 border-gray-200 outline-none focus:border-cyan-400"
+                                id="rep-password" type="password" placeholder="********" required>
+                            <div>
+                                <label for="gender" class="text-grey-darker text-sm font-bold mb-2">Gender: </label>
+                                <input name="gender" type="radio" class="ml-3 mb-2" value="Male"> Male
+                                <input name="gender" type="radio" class="ml-5 mb-2" value="Female"> Female
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label for="exp_in_years" class="text-grey-darker text-sm font-bold mb-2">Experience:
+                            </label>
+                            <input name="exp_in_years" type="number" min="0"
+                                class="rounded-lg border-2 border-gray-200 outline-none focus:border-cyan-400 pl-2">
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-grey-darker text-sm font-bold mb-2">Preferred Industry</label>
+                            <select multiple name="keySkills" id="keySkills" required
+                                class=" p-0 block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                <option value="Devops">Devops</option>
+                                <option value="Trainer">Trainer</option>
+                                <option value="Developer">Developer</option>
+                                <option value="Software Testing">Software Testing</option>
+                                <option value="UI/UX Designer">UI/Ux Designer</option>
+                                <option value="FullStack Developer">FullStack Developer</option>
+                                <option value="DB Admin">DB Admin</option>
+                                <option value="Animator">Animator</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <div
+                                class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                                </svg>
+                            </div>
+
+                        </div>
+                        <div class="mb-6">
+                            <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms &
+                                    Privacy</a>.</p>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <input class="bg-cyan-400 hover:bg-cyan-800 text-white font-bold py-2 px-4 rounded"
+                                type="submit" value="Sign Up" onclick="return Validate()">
+
+                    </form>
+
+                </div>
             </div>
         </div>
     </div>
