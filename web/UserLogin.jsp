@@ -191,10 +191,9 @@
                                             <label class="block text-grey-darker text-sm font-bold mb-2" for="firstName">
                                                 First Name
                                             </label>
-                                            <input name="firstName"
-                                                   class="w-full p-2 rounded-lg border-2 border-gray-200 outline-none focus:border-cyan-400"
-                                                   id="firstName" type="text" placeholder="First" pattern="[a-zA-Z]+"
-                                                   title="Please enter Alphabets." required>
+                                            <input name="firstName" id="firstName" type="text" placeholder="First" pattern="[a-zA-Z]+"
+                                                   title="Please enter Alphabets." required
+                                                   class="w-full p-2 rounded-lg border-2 border-gray-200 outline-none focus:border-cyan-400">
                                         </div>
                                         <div class="flex flex-col">
                                             <label class="block text-grey-darker text-sm font-bold mb-2" for="lastName">

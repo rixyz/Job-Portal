@@ -139,7 +139,7 @@
                         <div class="tab-content">
                             <div class="px-8 pb-8 flex flex-col mx-10 mb-10">
                                 <div class="grid place-content-center m-1 mb-3">
-                                    <h1 class="text-2xl font-bold">Login</h1>
+                                    <h1 class="text-2xl font-bold">Company Login</h1>
                                 </div>
                                 <form action="CompanyLogin" method="post">
                                     <div class="mb-4">
@@ -183,7 +183,7 @@
                         <div class="tab-content">
                             <div class="px-8 pb-8 flex flex-col mx-10 mb-10">
                                 <div class="grid place-content-center m-1 mb-3">
-                                    <h1 class="text-2xl font-bold">Register</h1>
+                                    <h1 class="text-2xl font-bold">Company Register</h1>
                                 </div>
                                 <form action="CompanyRegister" method="post">
                                     <div class="mb-6">
