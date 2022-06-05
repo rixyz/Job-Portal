@@ -43,10 +43,12 @@ public class SubmitJob extends HttpServlet {
         String Jid = request.getParameter("id");
 
         int state = d.applyToJob(Jid, Uid);
+        
+            System.out.println("UID"+Uid);
         switch (state) {
             case 1:
                 out.println("<script>alert('Applied To Job  Successfully.')</script>");
-                response.setHeader("Refresh", "1;Home");
+                response.setHeader("Refresh", "1;Jobs");
                 break;
             case 2:
                 out.println("<script>alert('You have already applied')</script>");

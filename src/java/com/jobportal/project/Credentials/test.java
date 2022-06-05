@@ -2,13 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package com.jobportal.project.Company;
+package com.jobportal.project.Credentials;
 
-import com.jobportal.project.Job.Bean.Job;
-import com.jobportal.project.Job.dao.JobDao;
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.List;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,11 +16,12 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Dell
  */
-@WebServlet(name = "CompanyRemoveJob", urlPatterns = {"/CompanyRemoveJob"})
-public class CompanyRemoveJob extends HttpServlet {
+@WebServlet(name = "test", urlPatterns = {"/test"})
+public class test extends HttpServlet {
 
     /**
-     * Handles the HTTP <code>GET</code> method.
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
      *
      * @param request servlet request
      * @param response servlet response
@@ -32,17 +30,18 @@ public class CompanyRemoveJob extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println("\nServlet Called: CompanyRemoveJob");
-        try {
-            //Call list() from JobDao and return the value in jobs                
-            List<Job> jobs = JobDao.list();
-            //Store jobs in request to be passed
-            request.setAttribute("JobList", jobs);
-            //Redirect the page passing request and response
-            request.getRequestDispatcher("CompanyRemoveJob.jsp").forward(request, response);
-
-        } catch (SQLException e) {
-            System.out.println(e);
+        response.setContentType("text/html;charset=UTF-8");
+        try ( PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet test</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet test at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
     }
 

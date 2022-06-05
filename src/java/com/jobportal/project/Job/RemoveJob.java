@@ -36,17 +36,21 @@ public class RemoveJob extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         HttpSession session = request.getSession(false);
-        try (PrintWriter out = response.getWriter()) {
+        try ( PrintWriter out = response.getWriter()) {
             JobDao d = new JobDao();
             String jid = request.getParameter("jid");
             String type = (String) session.getAttribute("Type");
 
             if (d.deleteJob(jid) == 1) {
                 out.println("<script>alert('Delete  Successfully.')</script>");
-                request.getRequestDispatcher("Home").forward(request, response);
             } else {
                 out.println("<script>alert('Delete failed')</script>");
-                response.setHeader("Refresh", "1;CompanyRemoveJob");
+            }
+            //Check type of account and redirect to the Page
+            if (type.equals("Admin")) {
+                request.getRequestDispatcher("AdminJobs").forward(request, response);
+            } else if (type.equals("Company")) {
+                request.getRequestDispatcher("CompanyRemoveJob").forward(request, response);
             }
         }
     }

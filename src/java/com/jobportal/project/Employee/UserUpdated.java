@@ -44,7 +44,7 @@ public class UserUpdated extends HttpServlet {
         String Ufname = request.getParameter("firstName");
         String Ulname = request.getParameter("lastName");
         String UserName = request.getParameter("userName");
-        String Password = request.getParameter("passwd");
+        String Password = request.getParameter("password");
         String gen = request.getParameter("gender");
         String exp = request.getParameter("exp_in_years");
         String skill = request.getParameter("keySkills");

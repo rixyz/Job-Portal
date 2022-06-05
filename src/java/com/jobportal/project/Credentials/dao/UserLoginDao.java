@@ -38,6 +38,7 @@ public class UserLoginDao {
                 e.setID(rs.getString(10));
                 System.out.println("UserID: " + e.getID());
                 session.setAttribute("ID", e.getID());
+                session.setAttribute("Name", rs.getString(2) + " " + rs.getString(3));
                 return true;
             }
         } catch (SQLException e) {

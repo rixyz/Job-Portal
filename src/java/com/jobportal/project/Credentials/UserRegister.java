@@ -34,7 +34,7 @@ public class UserRegister extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         System.out.println("\nServlet Called: Addjob");
         response.setContentType("text/html;charset=UTF-8");
@@ -57,10 +57,10 @@ public class UserRegister extends HttpServlet {
         System.out.println("Dao.save called");
         if (dao.save(Uemail, Ufname, Ulname, UserName, Password, gen, exp, skill, phone) == 1) {
             out.println("<script>alert('User Registered  Successfully.')</script>");
-            response.setHeader("Refresh", "1;index.jsp");
+            response.setHeader("Refresh", "1;UserLogin.jsp");
         } else {
             out.println("<script>alert('Registration failed!! Try Again')</script>");
-            response.setHeader("Refresh", "1;UserRegister.jsp");
+            response.setHeader("Refresh", "1;UserLogin.jsp");
 
         }
         out.close();

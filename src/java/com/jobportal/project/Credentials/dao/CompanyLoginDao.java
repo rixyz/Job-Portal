@@ -38,6 +38,7 @@ public class CompanyLoginDao {
             if (rs.next()) {
                 Company c = CompanyDao.getCompanyByEmail(email);
                 session.setAttribute("ID", c.getCid());
+                session.setAttribute("Name", c.getCname());
                 session.setAttribute("Type", "Company");
                 System.out.println("Login Successful");
                 return true;
