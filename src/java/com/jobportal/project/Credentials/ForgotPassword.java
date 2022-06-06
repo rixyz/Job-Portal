@@ -34,7 +34,7 @@ public class ForgotPassword extends HttpServlet {
         System.out.println("\nServlet Called: Addjob");
         response.setContentType("text/html;charset=UTF-8");
 
-        try (PrintWriter out = response.getWriter()) {
+        try ( PrintWriter out = response.getWriter()) {
             EmployeeDao dao = new EmployeeDao();
 
             String email = request.getParameter("email");
@@ -47,7 +47,7 @@ public class ForgotPassword extends HttpServlet {
             //Check status code
             if (status > 0) {
                 out.println("<script>alert('Password changed successfully.')</script>");
-                response.setHeader("Refresh", "1;index.jsp");
+                response.setHeader("Refresh", "1;UserLogin.jsp");
             } else {
                 out.println("<script>alert('Failed to change Password. Check and resubmit')</script>");
                 response.setHeader("Refresh", "1;index.jsp");

@@ -1,11 +1,22 @@
+<!-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@page import="javax.servlet.http.HttpSession"%>
+<%
+    System.out.println(session);
+    if (null == session.getAttribute("Type")) {
+        System.out.println("No session found");
+    } else {
+        request.getRequestDispatcher("Home").forward(request, response);
+    }
+%> -->
 <!DOCTYPE html>
 <html>
 
     <head>
-        <title>Company: AddJob</title>
+        <title>Company Login</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script src="css/output.js"></script>
+        <script src="js/validate.js"></script>
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <!-- CSS here -->
         <link rel="stylesheet" href="boot/css/bootstrap.min.css">
@@ -20,6 +31,56 @@
         <link rel="stylesheet" href="boot/css/slick.css">
         <link rel="stylesheet" href="boot/css/nice-select.css">
         <link rel="stylesheet" href="boot/css/style.css">
+        <style>
+            ul {
+                list-style: none;
+            }
+
+            .tab {
+                margin: 0 0 2em;
+            }
+
+
+            .tabs-btn {
+                display: flex;
+                justify-content: center;
+            }
+
+            .tab-btn {
+                flex: 1;
+                color: #333;
+                text-align: center;
+                padding: 1em 2em;
+                background-color: #d0ddec;
+                border: 1px solid gray;
+                border-radius: 10px 10px 0 0;
+                cursor: pointer;
+            }
+
+            .tab-btn:not(:last-of-type) {
+                border-right: 0;
+            }
+
+            .tab-content {
+                display: none;
+                padding: 1em;
+                border: 1px solid #000;
+                border-top: 0;
+                background-color: #fff;
+            }
+
+            /* tab open */
+            .tab-btn.tab-open {
+                font-weight: bold;
+                background-color: #fff;
+                border-bottom: 0;
+                transition: 0.3s;
+            }
+
+            .tab-content.tab-open {
+                display: block;
+            }
+        </style>
     </head>
 
     <body>
@@ -35,10 +96,6 @@
                         </div>
                         <div class="hidden sm:block sm:ml-6">
                             <div class="flex space-x-4">
-                                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                                <!-- <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
-                                    aria-current="page">User Portal</a> -->
-
                                 <a href="#"
                                    class="text-slate-800 hover:text-violet-400 px-3 py-2 rounded-md text-sm font-medium">
                                     Home</a>
@@ -51,182 +108,133 @@
                                 <a href="#"
                                    class="text-slate-800 hover:text-violet-400 px-3 py-2 rounded-md text-sm font-medium">
                                     Contact Us</a>
-
-                                <!-- <a href="#"
-                                    class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Calendar</a> -->
                             </div>
                         </div>
                     </div>
                     <div class="ml-3 relative">
                         <div class="flex space-x-4 ">
-                            <div>
-                                <button type="button"
-                                        class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-                                        id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-                                    <img class="h-10 w-10 rounded-full"
-                                         src="boot/img/icon/job-list1.png"
-                                         alt="">
-                                </button>
+                            <div class="p-3 border border-violet-400 hover:bg-slate-200 ">
+                                <a href="UserLogin.jsp"
+                                   class="text-slate-800 hover:text-violet-400 px-3 py-2 rounded-md text-sm font-medium">
+                                    User Portal</a>
+                            </div>
+                            <div class="p-3 ">
+                                <a href="CompanyLogin.jsp"
+                                   class="text-slate-800 hover:text-violet-400 px-3 py-2 rounded-md text-sm font-medium">
+                                    Company Portal</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </nav>
-        <!-- Preloader Start -->
-        <div id="preloader-active">
-            <div class="preloader d-flex align-items-center justify-content-center">
-                <div class="preloader-inner position-relative">
-                    <div class="preloader-circle"></div>
-                    <div class="preloader-img pere-text">
-                        <img src="boot/img/logo/logo.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Preloader Start -->
-        <main>
-            <!-- Hero Area End -->
-            <!-- Job List Area Start -->
-            <div class="job-listing-area pt-120 pb-120">
-                <div class="container">
-                    <div class="row">
-                        <!-- Left content -->
-                        <div class="col-xl-3 col-lg-3 col-md-4">
-                            <!-- Job Category Listing start -->
-                            <div class="job-category-listing mb-50">
-                                <!-- single three -->
-                                <div class="single-listing">
-                                    <div class="text-xl my-3 text-center ">
-                                        <%= session.getAttribute("Name")%>
-                                    </div>
-                                    <div class="select-Categories pb-50">
-                                        <div class="small-section-tittle2 ">
-                                            <h4 class="p-2 pb-1 pl-3 rounded ">
-                                                <a href="Home" class="hover:text-violet-400">
-                                                    <i class="fas fa-home"></i>
-                                                    Dashboard
-                                                </a>
-                                            </h4>
-                                        </div>
-                                        <div class="small-section-tittle2">
-                                            <h4 class="p-2 pl-3 pb-1 rounded bg-violet-400  text-white">
-                                                <a>
-                                                    <i class="fas fa-plus"></i>
-                                                    Add Job
-                                                </a>
-                                            </h4>
-                                        </div>
-                                        <div class="small-section-tittle2">
-                                            <h4 class="p-2 pl-3 pb-1 rounded">
-                                                <a href="CompanyRemoveJob" class="hover:text-violet-400">
-                                                    <i class="fas fa-minus"></i>
-                                                    Remove Job
-                                                </a>
-                                            </h4>
-                                        </div>
-                                        <div class="small-section-tittle2">
-                                            <h4 class="p-2 pl-3 pb-1 rounded">
-                                                <a href="CompanyApplicationList" class="hover:text-violet-400">
-                                                    <i class="fas fa-list"></i>
-                                                    Application List
-                                                </a>
-                                            </h4>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="single-listing">
-                                    <!-- Range Slider Start -->
-                                    <aside class="left_widgets p_filter_widgets price_rangs_aside sidebar_box_shadow">
-                                        <div class="small-section-tittle2">
-                                            <a href="LogOut" class="bg-red-500 hover:bg-red-600 p-2 px-3 rounded text-white text-center">
-                                                Log Out
-                                            </a>
-                                        </div>
-
-                                    </aside>
-                                    <!-- Range Slider End -->
-                                </div>
-                            </div>
-                            <!-- Job Category Listing End -->
-                        </div>
-                        <!-- Right content -->
-                        <div class="col-xl-9 col-lg-9 col-md-8">
+        <div class="h-max grid place-items-center">
+            <div class="my-20 mt-40 ">
+                <div class="tab m-10">
+                    <ul class="tabs-btn">
+                        <li class="tab-btn">Login</li>
+                        <li class="tab-btn">Register</li>
+                    </ul>
+                    <div class="tabs-content">
+                        <div class="tab-content">
                             <div class="px-8 pb-8 flex flex-col mx-10 mb-10">
                                 <div class="grid place-content-center m-1 mb-3">
-                                    <h1 class="text-2xl font-bold">Add Job</h1>
+                                    <h1 class="text-2xl font-bold">Company Login</h1>
                                 </div>
-                                <form action="AddJob" method="post">
-                                    <div class="mb-6">
-                                        <label class="block text-grey-darker text-sm font-bold mb-2" for="loc">
-                                            Location
+                                <form action="CompanyLogin" method="post">
+                                    <div class="mb-4">
+                                        <label class="block text-grey-darker text-sm font-bold mb-2" for="email">
+                                            Email
                                         </label>
-                                        <input name="loc" id="loc" type="text" placeholder="Location" required
-                                               pattern=".{,50}" title="Max 50 letters"
+                                        <div class="flex">
+                                            <div
+                                                class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                                                <i class="fas fa-user text-gray-400 text-lg"></i>
+                                            </div>
+                                            <input type="email" name="email" id="lemail" placeholder="Email" required
+                                                   class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-violet-400">
+                                        </div>
+                                    </div>
+                                    <div class="mb-6">
+                                        <label class="block text-grey-darker text-sm font-bold mb-2" for="password">
+                                            Password
+                                        </label>
+                                        <div class="flex">
+                                            <div
+                                                class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                                                <i class="fas fa-lock text-gray-400 text-lg"></i>
+                                            </div>
+                                            <input type="password" name="password" id="lpassword" placeholder="********"
+                                                   required
+                                                   class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-violet-400">
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <input type="submit" value="Sign In"
+                                               class="bg-violet-400 hover:bg-violet-500 text-white font-bold py-2 px-4 rounded">
+                                    </div>
+                                </form>
+                                <p class="mt-2"> <a href="ForgotPassword.jsp" class="hover:text-violet-400">Forgot
+                                        Password?</a>.
+                                </p>
+
+                            </div>
+                        </div>
+                        <div class="tab-content">
+                            <div class="px-8 pb-8 flex flex-col mx-10 mb-10">
+                                <div class="grid place-content-center m-1 mb-3">
+                                    <h1 class="text-2xl font-bold">Company Register</h1>
+                                </div>
+                                <form action="CompanyRegister" method="post">
+                                    <div class="mb-6">
+                                        <label class="block text-grey-darker text-sm font-bold mb-2" for="email">
+                                            Company Name
+                                        </label>
+                                        <input name="cname" id="cname" type="text" placeholder="Company Name" required
+                                               pattern=".{3,45}" title="3-45 letters"
                                                class="w-full p-2 rounded-lg border-2 border-gray-200 outline-none focus:border-violet-400">
                                     </div>
                                     <div class="mb-6">
-                                        <label class="block text-grey-darker text-sm font-bold mb-2" for="vac">
-                                            Vacancy
+                                        <label class="block text-grey-darker text-sm font-bold mb-2" for="email">
+                                            Email
                                         </label>
-                                        <input name="vac" id="vac" type="number" placeholder="Vacancy" required
-                                               class="p-2 rounded-lg border-2 border-gray-200 outline-none focus:border-violet-400">
-                                    </div>
-                                    <div class="mb-6">
-                                        <label class="block text-grey-darker text-sm font-bold mb-2" for="ivl">
-                                            Interview Location
-                                        </label>
-                                        <input name="ivl" id="ivl" type="text" placeholder="Interview Location" required
+                                        <input name="email" id="email" type="email" placeholder="Email" required
                                                pattern=".{,45}" title="Max 45 letters"
-                                               class="w-full p-2 rounded-lg border-2 border-gray-200 outline-none focus:border-violet-400" />
+                                               class="w-full p-2 rounded-lg border-2 border-gray-200 outline-none focus:border-violet-400">
                                     </div>
                                     <div class="mb-6">
-                                        <label class="block text-grey-darker text-sm font-bold mb-2" for="deadline">
-                                            Deadline
+                                        <label class="block text-grey-darker text-sm font-bold mb-2" for="userName">
+                                            Username
                                         </label>
-                                        <input name="deadline" id="deadline" type="date" required
-                                               class="w-full p-2 rounded-lg border-2 border-gray-200 outline-none focus:border-violet-400" />
+                                        <input name="username" id="username" type="text" placeholder="Username" required
+                                               pattern=".{3,16}" title="3-16 letters"
+                                               class="w-full p-2 rounded-lg border-2 border-gray-200 outline-none focus:border-violet-400">
                                     </div>
                                     <div class="mb-6">
-                                        <label class="block text-grey-darker text-sm font-bold mb-2" for="salary">
-                                            Salary
+                                        <label class="block text-grey-darker text-sm font-bold mb-2" for="password">
+                                            Password
                                         </label>
-                                        <input name="sal" id="salary" type="number" placeholder="in Nepali Rupees(NRS)"
-                                               required pattern=".{,45}" title="Max 45 digits"
-                                               class="w-full p-2 rounded-lg border-2 border-gray-200 outline-none focus:border-violet-400" />
+                                        <input name="password" id="password" type="password" placeholder="********"
+                                               pattern=".{8,32}" title="8-32 letters" required
+                                               class="w-full p-2 rounded-lg border-2 border-gray-200 outline-none focus:border-violet-400">
                                     </div>
                                     <div class="mb-6">
-                                        <label class="block text-grey-darker text-sm font-bold mb-2">Industry</label>
-                                        <select name="skill" id="skill" required
-                                                class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                                            <option value="Devops">Devops</option>
-                                            <option value="Trainer">Trainer</option>
-                                            <option value="Developer">Developer</option>
-                                            <option value="Software Testing">Software Testing</option>
-                                            <option value="UI/UX Designer">UI/Ux Designer</option>
-                                            <option value="FullStack Developer">FullStack Developer</option>
-                                            <option value="DB Admin">DB Admin</option>
-                                            <option value="Animator">Animator</option>
-                                            <option value="Other">Other</option>
-                                        </select>
-                                        <div
-                                            class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
-                                                 viewBox="0 0 20 20">
-                                            <path
-                                                d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                                            </svg>
-                                        </div>
+                                        <label class="block text-grey-darker text-sm font-bold mb-2" for="rep-password">
+                                            Repeat Password
+                                        </label>
+                                        <input name="rep-password" id="rep-password" type="password" placeholder="********"
+                                               pattern=".{8,32}" title="8-32 letters" required
+                                               class="w-full p-2 rounded-lg border-2 border-gray-200 outline-none focus:border-violet-400">
                                     </div>
-                                    <div class="mb-1">
-                                        <p>
-                                            &nbsp;
-                                        </p>
+                                    <div class="mb-6">
+                                        <p>By creating an account you agree to our <a href="#"
+                                                                                      style="color:dodgerblue">Terms &
+                                                Privacy</a>.</p>
                                     </div>
                                     <div class="flex items-center justify-between">
-                                        <input type="submit" value="Add Job"
-                                               class="bg-violet-400 hover:bg-violet-500 text-white font-bold py-2 px-4 rounded" />
+                                        <input
+                                            class="bg-violet-400 hover:bg-violet-500 text-white font-bold py-2 px-4 rounded"
+                                            type="submit" value="Sign Up" onclick="return Validate()">
                                     </div>
 
                                 </form>
@@ -235,12 +243,11 @@
                         </div>
                     </div>
                 </div>
+
             </div>
-            <!-- Job List Area End -->
-            <!--Pagination Start  -->
 
+        </div>
 
-        </main>
     </div>
     <footer class="bg-gray-800">
         <div class="grid grid-cols-2 gap-8 py-8 px-6 md:grid-cols-4">
@@ -356,9 +363,30 @@
         </div>
     </footer>
     <!-- JS here -->
+    <script>
+        const tab = document.querySelectorAll(".tab");
+        const toggleTab = function (element) {
+            const tabBtn = element.querySelectorAll(".tab-btn");
+            const tabContent = element.querySelectorAll(".tab-content");
+            tabBtn[0].classList.add("tab-open");
+            tabContent[0].classList.add("tab-open");
 
+            const removeTab = function (element) {
+                for (const i of element) {
+                    i.classList.remove("tab-open");
+                }
+            };
+            const openTab = function (index) {
+                removeTab(tabBtn);
+                removeTab(tabContent);
+                tabBtn[index].classList.add("tab-open");
+                tabContent[index].classList.add("tab-open");
+            };
+            tabBtn.forEach((el, i) => (el.onclick = () => openTab(i)));
+        };
+        [...tab].forEach((el) => toggleTab(el));
 
-
+    </script>
     <!-- All JS Custom Plugins Link Here here -->
     <script src="./boot/js/vendor/modernizr-3.5.0.min.js"></script>
     <!-- Jquery, Popper, Bootstrap -->
@@ -393,6 +421,7 @@
     <script src="./boot/js/plugins.js"></script>
     <script src="./boot/js/main.js"></script>
 
+</body>
 </body>
 
 </html>

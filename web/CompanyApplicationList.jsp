@@ -166,7 +166,7 @@
                                         List<TotalApplication> A = (List<TotalApplication>) request.getAttribute("AppliedList");
                                         if (!A.isEmpty()) {
                                             for (TotalApplication a : A) {
-                                                if (!(a.getApproved().equals("WAIT"))) {
+                                                if (a.getApproved().equals("NO")) {
                                                     continue;
                                                 }
                                                 Job j = JobDao.getJobById(a.getJid());
@@ -176,67 +176,66 @@
                                     <div class="single-job-items mb-30">
                                         <div class="job-items">
                                             <div class="company-img">
-                                                <a href="#"><img class="h-16 w-16 rounded-full" alt=""
-                                                                 src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=forma"></a>
+                                                <a href="#">
+                                                    <img class="h-16 w-16 rounded-full" alt=""
+                                                         src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=forma"></a>
                                             </div>
                                             <div class="job-tittle job-tittle2">
                                                 <a href="#">
-                                                    <h4>Digital Marketer</h4>
+                                                    <h4><%=e.getUfname()%> <%=e.getUlname()%></h4>
                                                 </a>
                                                 <ul>
-                                                    <li>Creative Agency</li>
+                                                    <li><%=j.getSkills()%></li>
                                                 </ul>
+                                                <div class="w-full flex-none font-medium text-slate-700 mt-2">
+                                                    <table>
+                                                        <tr>
+                                                            <td>Gender</td>
+                                                            <td>:</td>
+                                                            <td><%=e.getGen()%></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Experience</td>
+                                                            <td>:</td>
+                                                            <td><%=e.getExp()%> years</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Skills</td>
+                                                            <td>:</td>
+                                                            <td><%=e.getSkill()%></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Number</td>
+                                                            <td>:</td>
+                                                            <td><%=e.getNumber()%></td>
+                                                        </tr>
+                                                    </table>
+
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="items-link items-link2 f-right">
+                                            <%if (a.getApproved().equals("YES")) {%>
+
                                             <a href="job_details.html"
                                                class="bg-green-500 border-white text-white hover:bg-red-500">Accepted</a>
+                                            <% } else if (a.getApproved().equals("WAIT")) {%>
+                                            <form action="UpdateApplication" method="post">
+                                                <input type="text" name="eid" value="<%=e.getID()%>" hidden>
+                                                <input type="text" name="jid" value="<%=j.getJid()%>" hidden>
+                                                <button name="approve" value="YES"
+                                                        class="border-2 border-green-500 text-green-500 hover:bg-green-500 hover:text-white py-2 px-4 rounded-full">
+                                                    Approve
+                                                </button>
+                                                <button name="approve" value="NO"
+                                                        class="border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white py-2 px-4 rounded-full">
+                                                    Deny
+                                                </button>
+                                                <%}%>
+                                            </form>
                                         </div>
                                     </div>
-                                    <!-- single-job-content -->
-                                    <div class="single-job-items mb-30">
-                                        <div class="job-items">
-                                            <div class="company-img">
-                                                <a href="#"><img class="h-16 w-16 rounded-full" alt=""
-                                                                 src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=forma"></a>
-                                            </div>
-                                            <div class="job-tittle job-tittle2">
-                                                <a href="#">
-                                                    <h4>Digital Marketer</h4>
-                                                </a>
-                                                <ul>
-                                                    <li>Creative Agency</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="items-link items-link2 f-right">
-                                            <a href="job_details.html"
-                                               class="bg-red-500 border-white text-white hover:bg-red-500">Rejected</a>
-                                        </div>
-                                    </div>
-                                    <!-- single-job-content -->
-                                    <div class="single-job-items mb-30">
-                                        <div class="job-items">
-                                            <div class="company-img">
-                                                <a href="#"><img class="h-16 w-16 rounded-full" alt=""
-                                                                 src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=forma"></a>
-                                            </div>
-                                            <div class="job-tittle job-tittle2">
-                                                <a href="#">
-                                                    <h4>Digital Marketer</h4>
-                                                </a>
-                                                <ul>
-                                                    <li>Creative Agency</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="items-link items-link2 f-right">
-                                            <a href="job_details.html"
-                                               class="bg-yellow-500 border-white text-white hover:bg-red-500">Waiting</a>
-                                        </div>
-                                    </div>
-                                    <%
-                                        }
+                                    <%                                        }
                                     } else {
                                     %>
                                     <div class="flex justify-center text-2xl strong m-5">No Active Job Application</div>

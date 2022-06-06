@@ -60,7 +60,7 @@ public class UserLogIn extends HttpServlet {
 
         } else {
             out.println("<script>alert('Login fail.')</script>");
-            response.setHeader("Refresh", "1;index.jsp");
+            response.setHeader("Refresh", "1;UserLogin.jsp");
         }
         out.close();
     }

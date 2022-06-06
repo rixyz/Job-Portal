@@ -34,7 +34,7 @@ public class CompanyRegister extends HttpServlet {
         System.out.println("\nServlet Called: CompanyRegister");
         response.setContentType("text/html;charset=UTF-8");
         CompanyDao dao = new CompanyDao();
-        try (PrintWriter out = response.getWriter()) {
+        try ( PrintWriter out = response.getWriter()) {
             String username = request.getParameter("username");
             String pass = request.getParameter("password");
             String cname = request.getParameter("cname");
@@ -48,7 +48,7 @@ public class CompanyRegister extends HttpServlet {
                     response.setHeader("Refresh", "1;CompanyLogin.jsp");
                 } else {
                     out.println("<script>alert('Registration failed.')</script>");
-                    response.setHeader("Refresh", "1;CompanyRegister.jsp");
+                    response.setHeader("Refresh", "1;CompanyLogin.jsp");
                 }
             }
         }

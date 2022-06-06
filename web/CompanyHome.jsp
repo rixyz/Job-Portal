@@ -124,7 +124,7 @@
                                         </div>
                                         <div class="small-section-tittle2">
                                             <h4 class="p-2 pl-3 pb-1 rounded">
-                                                <a href="#" class="hover:text-violet-400">
+                                                <a href="CompanyApplicationList" class="hover:text-violet-400">
                                                     <i class="fas fa-list"></i>
                                                     Application List
                                                 </a>

@@ -3,6 +3,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="com.jobportal.project.Job.Bean.Job"%>
+<%String id = (String) session.getAttribute("ID");%>
 <!DOCTYPE html>
 <html>
 
@@ -166,6 +167,8 @@
                                         System.out.println(J);
                                         if (!J.isEmpty()) {
                                             for (Job j : J) {
+                                                String userid = String.valueOf(j.getCompany());
+                                                if (userid.equals(id)) {
                                     %>
                                     <!-- single-job-content -->
                                     <form action="RemoveJob" method="post">
@@ -191,7 +194,7 @@
                                             </div>
                                         </div>
                                     </form>
-                                    <%
+                                    <%}
                                         }
                                     } else {
                                     %>
