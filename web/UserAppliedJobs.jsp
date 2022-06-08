@@ -11,7 +11,7 @@
 <html>
 
     <head>
-        <title>User Home</title>
+        <title>User Applied Jobs</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script src="js/chart.js"></script>
@@ -70,13 +70,6 @@
                     <div class="ml-3 relative">
                         <div class="flex space-x-4 ">
                             <div>
-                                <button type="button"
-                                        class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-                                        id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-                                    <img class="h-10 w-10 rounded-full"
-                                         src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=forma"
-                                         alt="">
-                                </button>
                             </div>
                         </div>
                     </div>

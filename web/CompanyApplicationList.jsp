@@ -177,8 +177,8 @@
                                         <div class="job-items">
                                             <div class="company-img">
                                                 <a href="#">
-                                                    <img class="h-16 w-16 rounded-full" alt=""
-                                                         src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=forma"></a>
+                                                    <img class="h-16 w-16 rounded-full" alt="" onerror=this.src="./assets/img/user/null/profilepic.jpeg"
+                                                         src="./assets/img/user/<%=e.getID()%>/profilepic.jpeg"></a>
                                             </div>
                                             <div class="job-tittle job-tittle2">
                                                 <a href="#">

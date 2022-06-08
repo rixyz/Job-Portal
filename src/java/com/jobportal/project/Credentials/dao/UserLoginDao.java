@@ -6,8 +6,15 @@ package com.jobportal.project.Credentials.dao;
 
 import com.jobportal.project.Employee.Bean.Employee;
 import com.jobportal.project.sql.SqlConnection;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.sql.*;
 import javax.servlet.http.HttpSession;
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 
 /**
  *
@@ -26,7 +33,7 @@ public class UserLoginDao {
      * @param session
      * @return
      */
-    public boolean validate(String email, String pass, HttpSession session) {
+    public boolean validate(String email, String pass, HttpSession session) throws IOException {
         try {
             con = SqlConnection.dbConnector();
             PreparedStatement st = con.prepareStatement(query);
@@ -39,6 +46,34 @@ public class UserLoginDao {
                 System.out.println("UserID: " + e.getID());
                 session.setAttribute("ID", e.getID());
                 session.setAttribute("Name", rs.getString(2) + " " + rs.getString(3));
+
+                String id = e.getID();
+                String PATH = "D:\\Projects\\UProj\\Job Portal Website\\Job_Portal\\web\\assets\\img\\user\\";
+                String fileName = "\\profilepic.jpeg";
+                File file = new File(PATH + id + fileName);
+                if (!file.exists()) {
+                    FileInputStream fis = null;
+                    try {
+                        File directory = new File(PATH + id);
+                        if (!directory.exists()) {
+                            directory.mkdir();
+                        }
+                        fis = new FileInputStream(PATH + "null" + fileName);
+
+                        try ( OutputStream outputStream = new FileOutputStream(file)) {
+                            IOUtils.copy(fis, outputStream);
+                        } catch (FileNotFoundException ex) {
+                            System.out.println("File not Found\n" + ex);
+                        } catch (IOException ex) {
+                            System.out.println("IOE\n" + ex);
+                        }
+                        System.out.println("Made The File");
+                    } finally {
+                        if (fis != null) {
+                            fis.close();
+                        }
+                    }
+                }
                 return true;
             }
         } catch (SQLException e) {

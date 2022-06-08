@@ -5,6 +5,7 @@
 <%@page import="com.jobportal.project.Job.Bean.Job"%>
 <%@page import="com.jobportal.project.Company.dao.CompanyDao"%>
 <%@page import="com.jobportal.project.Company.Bean.Company"%>
+<%List<Job> J = (List<Job>) request.getAttribute("JobList");%>
 <!DOCTYPE html>
 <html>
 
@@ -57,13 +58,6 @@
                     <div class="ml-3 relative">
                         <div class="flex space-x-4 ">
                             <div>
-                                <button type="button"
-                                        class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-                                        id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-                                    <img class="h-10 w-10 rounded-full"
-                                         src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=forma"
-                                         alt="">
-                                </button>
                             </div>
                         </div>
                     </div>
@@ -176,7 +170,7 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="count-job mb-35">
-                                                <span>39, 782 Jobs found</span>
+                                                <span><%=J.size()%> jobs found</span>
                                                 <!-- Select job items start -->
                                                 <div class="select-job-items">
                                                     <span>Sort by</span>
@@ -193,13 +187,11 @@
                                     </div>
                                     <!-- Count of Job list End -->
                                     <%
-                                        List<Job> J = (List<Job>) request.getAttribute("JobList");
 
                                         if (!J.isEmpty()) {
                                             int i = 1;
                                             for (Job j : J) {
                                                 Company c = CompanyDao.getCompanyById(j.getCompany());
-                                                System.out.println(j.getJid());
                                     %>
                                     <!-- single-job-content -->
                                     <form action="JobInfo.jsp" method="post">
@@ -207,7 +199,7 @@
                                         <div class="single-job-items mb-30">
                                             <div class="job-items">
                                                 <div class="company-img">
-                                                    <a href="#"><img src="boot/img/icon/job-list<%=i++%>.png" alt=""></a>
+                                                    <a href="#"><img src="boot/img/icon/job-list<%=i++%>.png" onerror=this.src="boot/img/icon/job-list1.png" alt=""></a>
                                                 </div>
                                                 <div class="job-tittle job-tittle2">
                                                     <a href="#">

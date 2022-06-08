@@ -1,9 +1,19 @@
+<!-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@page import="javax.servlet.http.HttpSession"%>
+<%
+    System.out.println(session);
+    if (null == session.getAttribute("Type")) {
+        System.out.println("No session found");
+    } else {
+        request.getRequestDispatcher("Home").forward(request, response);
+    }
+%> -->
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Snippet - BBBootstrap</title>
+        <title>User Login</title>
         <link href="boot/css/fontawesome-all.min.css" rel="stylesheet" />
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <style>

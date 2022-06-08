@@ -2,7 +2,7 @@
 <html>
 
     <head>
-        <title>User Home</title>
+        <title>Admin Home</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script src="js/chart.js"></script>
@@ -122,10 +122,10 @@
                                     <!-- Range Slider Start -->
                                     <aside class="left_widgets p_filter_widgets price_rangs_aside sidebar_box_shadow">
                                         <div class="small-section-tittle2">
-                                            <h4
-                                                class="bg-red-500 hover:bg-red-600 p-2 pl-3 w-1/2 rounded text-white text-center">
+                                            <a href="LogOut" class="bg-red-500 hover:bg-red-600 p-2 px-3 rounded text-white text-center">
                                                 Log Out
-                                            </h4>
+                                            </a>
+
                                         </div>
 
                                     </aside>

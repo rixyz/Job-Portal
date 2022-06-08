@@ -8,7 +8,7 @@
 <html>
 
     <head>
-        <title>User Home</title>
+        <title>Remove Jobs</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script src="js/chart.js"></script>

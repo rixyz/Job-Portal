@@ -66,13 +66,6 @@
                     <div class="ml-3 relative">
                         <div class="flex space-x-4 ">
                             <div>
-                                <button type="button"
-                                        class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-                                        id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-                                    <img class="h-10 w-10 rounded-full"
-                                         src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=forma"
-                                         alt="">
-                                </button>
                             </div>
                         </div>
                     </div>
@@ -180,9 +173,11 @@
                                                            id="lastName" type="text" placeholder="Last" pattern="[a-zA-Z]+"
                                                            title="Please enter Alphabets" required>
                                                 </div>
-                                                <img class="h-20 w-20 rounded-full ml-auto"
-                                                     src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=forma"
-                                                     alt="">
+                                                <img class="h-20 w-20 rounded-full ml-auto object-cover"
+                                                     src="./assets/img/user/<%=e.getID()%>/profilepic.jpeg"
+                                                     alt=""
+                                                     onerror=this.src="./assets/img/user/null/profilepic.jpeg"
+                                                     >
                                             </div>
                                             <div class="mb-6">
                                                 <label class="block text-grey-darker text-sm font-bold mb-2 text-slate-800 "
@@ -235,7 +230,7 @@
                                                        class="text-grey-darker text-sm font-bold mb-2 text-slate-800 ">Experience:
                                                 </label>
                                                 <input name="exp_in_years" type="number" min="0" value="<%=e.getExp()%>"
-                                                       class="shadow appearance-none border border-red w-1/5 rounded text-grey-darker mb-3">
+                                                       class="rounded-lg border-2 border-gray-200 outline-none focus:border-cyan-400 pl-2">
                                                 <div class="mb-3">
                                                     <label
                                                         class="block text-grey-darker text-sm font-bold mb-2 text-slate-800 ">Preferred
@@ -272,29 +267,18 @@
                                                     type="submit" value="Exit">
                                             </div>
                                         </form>
-                                        <div class="flex justify-center">
+                                        <div class="flex mt-3">
                                             <div class="my-3 w-96">
-                                                <form action = "UploadServlet" method = "post" enctype = "multipart/form-data">
-                                                    <label for="formFileSm"
-                                                           class="form-label inline-block mb-2 text-gray-700">Small file input
-                                                        example</label>
-                                                    <input type = "file" name = "file" size = "50" class="form-control
-                                                           block
-                                                           w-full
-                                                           px-2
-                                                           py-1
-                                                           text-sm
-                                                           font-normal
-                                                           text-gray-700
-                                                           bg-white bg-clip-padding
-                                                           border border-solid border-gray-300
-                                                           rounded
-                                                           transition
-                                                           ease-in-out
-                                                           m-0
-                                                           focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none""/>
-
-                                                    <input type = "submit" value = "Upload File" />
+                                                <form action="UploadResume" method="post"enctype="multipart/form-data" >
+                                                    <label for="filename"
+                                                           class="text-grey-darker text-sm font-bold mb-2 text-slate-800 ">
+                                                        Upload Image:
+                                                    </label>
+                                                    <input type="file" id="customFile" name="filename"  required
+                                                           class="form-control block w-full px-2 py-1 text-sm font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"/> 
+                                                    <input
+                                                        class="bg-cyan-400 hover:bg-cyan-600 text-white font-bold py-2 px-4 rounded mt-1"
+                                                        type="submit" value="Upload ">
                                                 </form>
                                             </div>
                                         </div>
@@ -428,7 +412,14 @@
         </div>
     </footer>
     <!-- JS here -->
-
+    <script src="./js/jquery.min.js"></script>
+    <script>
+        // Add the following code if you want the name of the file appear on select
+        $(".custom-file-input").on("change", function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
 
     <!-- All JS Custom Plugins Link Here here -->
     <script src="./boot/js/vendor/modernizr-3.5.0.min.js"></script>

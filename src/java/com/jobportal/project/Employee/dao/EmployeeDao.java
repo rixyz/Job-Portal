@@ -3,8 +3,15 @@ package com.jobportal.project.Employee.dao;
 import java.sql.*;
 import com.jobportal.project.sql.SqlConnection;
 import com.jobportal.project.Employee.Bean.Employee;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 
 /**
  *
@@ -209,4 +216,29 @@ public class EmployeeDao {
         return 0;
     }
 
+    public int uploadImage(String id, InputStream resume) {
+        try {
+            if (id == null) {
+                return 2;
+            }
+            String PATH = "D:\\Projects\\UProj\\Job Portal Website\\Job_Portal\\web\\assets\\img\\user\\" + id;
+            String fileName = "\\profilepic.jpeg";
+            File directory = new File(PATH);
+            if (!directory.exists()) {
+                directory.mkdir();
+            }
+            File file = new File(PATH + fileName);
+            try ( OutputStream outputStream = new FileOutputStream(file)) {
+                IOUtils.copy(resume, outputStream);
+            } catch (FileNotFoundException e) {
+                System.out.println("File not Found\n" + e);
+            } catch (IOException e) {
+                System.out.println("IOE\n" + e);
+            }
+            return 1;
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return 0;
+    }
 }

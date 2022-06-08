@@ -43,7 +43,7 @@
                                 <!-- <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
                                     aria-current="page">User Portal</a> -->
 
-                                <a href="#"
+                                <a href="Home"
                                    class="text-slate-800 hover:text-cyan-400 px-3 py-2 rounded-md text-sm font-medium">
                                     Home</a>
                                 <a href="#"

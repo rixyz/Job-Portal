@@ -9,7 +9,7 @@
 <html>
 
     <head>
-        <title>User Home</title>
+        <title>List Jobs</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -68,13 +68,6 @@
                     <div class="ml-3 relative">
                         <div class="flex space-x-4 ">
                             <div>
-                                <button type="button"
-                                        class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-                                        id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-                                    <img class="h-10 w-10 rounded-full"
-                                         src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=forma"
-                                         alt="">
-                                </button>
                             </div>
                         </div>
                     </div>
@@ -108,7 +101,7 @@
                                     <div class="select-Categories pb-50">
                                         <div class="small-section-tittle2 ">
                                             <h4 class="p-2 pb-1 pl-3 rounded ">
-                                                <a href="#" class="hover:text-amber-400">
+                                                <a href="Home" class="hover:text-amber-400">
                                                     <i class="fas fa-home"></i>
                                                     Dashboard
                                                 </a>
@@ -124,7 +117,7 @@
                                         </div>
                                         <div class="small-section-tittle2">
                                             <h4 class="p-2 pl-3 pb-1 rounded ">
-                                                <a href="#" class="hover:text-amber-400">
+                                                <a href="ListEmployees" class="hover:text-amber-400">
                                                     <i class="fas fa-user"></i>
                                                     List Employees
                                                 </a>
