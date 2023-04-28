@@ -16,7 +16,7 @@ For live file update.
       <Host name="localhost"  appBase="webapps"
             ...
           <Context docBase="E:\assets" path="/files" />
-          <!--Should be same on FileController -->
+          <!--Should be same on FileController & UploadDownloadController -->
 
       </Host>
     </Engine>
