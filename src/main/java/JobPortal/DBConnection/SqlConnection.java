@@ -20,7 +20,7 @@ public class SqlConnection {
         try {
             String url = "jdbc:mysql://localhost:3306/jobportal";
             Class.forName("com.mysql.cj.jdbc.Driver");
-            return DriverManager.getConnection(url, "rix", "pass");
+            return DriverManager.getConnection(url, "root", "");
         } catch (CommunicationsException ex) {
             throw new SQLException("Database service not found", ex);
         } catch (ClassNotFoundException | SQLException ex) {

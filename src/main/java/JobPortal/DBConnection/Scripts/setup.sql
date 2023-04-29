@@ -10,7 +10,7 @@ CREATE TABLE companies
     Credit   int(10) DEFAULT 0 NOT NULL
 );
 
-CREATE DEFINER = rix@localhost TRIGGER delete_company_count
+CREATE DEFINER = root@localhost TRIGGER delete_company_count
     AFTER DELETE
     ON companies
     FOR EACH ROW
@@ -18,7 +18,7 @@ BEGIN
     UPDATE report SET company_count = company_count - 1 WHERE month = MONTH(NOW());
 END;
 
-CREATE DEFINER = rix@localhost TRIGGER update_company_count
+CREATE DEFINER = root@localhost TRIGGER update_company_count
     AFTER INSERT
     ON companies
     FOR EACH ROW
@@ -46,7 +46,7 @@ CREATE TABLE employee
             ON UPDATE CASCADE ON DELETE SET NULL
 );
 
-CREATE DEFINER = rix@localhost TRIGGER delete_employee_count
+CREATE DEFINER = root@localhost TRIGGER delete_employee_count
     AFTER DELETE
     ON employee
     FOR EACH ROW
@@ -54,7 +54,7 @@ BEGIN
     UPDATE report SET employee_count = employee_count - 1 WHERE month = MONTH(NOW());
 END;
 
-CREATE DEFINER = rix@localhost TRIGGER update_employee_count
+CREATE DEFINER = root@localhost TRIGGER update_employee_count
     AFTER INSERT
     ON employee
     FOR EACH ROW
@@ -95,7 +95,7 @@ CREATE TABLE appliedjobs
             ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-CREATE DEFINER = rix@localhost TRIGGER insert_new_application
+CREATE DEFINER = root@localhost TRIGGER insert_new_application
     BEFORE INSERT
     ON appliedjobs
     FOR EACH ROW
@@ -103,7 +103,7 @@ BEGIN
     UPDATE report SET application_count = application_count + 1 WHERE month = MONTH(NOW());
 END;
 
-CREATE DEFINER = rix@localhost TRIGGER update_job_success
+CREATE DEFINER = root@localhost TRIGGER update_job_success
     BEFORE UPDATE
     ON appliedjobs
     FOR EACH ROW

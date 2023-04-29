@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/src/main/java/JobPortal/DBConnection/Scripts/generateApplication.sql" dialect="MariaDB" />
+    <file url="file://$PROJECT_DIR$/src/main/java/JobPortal/DBConnection/Scripts/generateCompanies.sql" dialect="MariaDB" />
+    <file url="file://$PROJECT_DIR$/src/main/java/JobPortal/DBConnection/Scripts/generateEmployee.sql" dialect="MariaDB" />
+    <file url="file://$PROJECT_DIR$/src/main/java/JobPortal/DBConnection/Scripts/generateJobs.sql" dialect="MariaDB" />
+    <file url="file://$PROJECT_DIR$/src/main/java/JobPortal/DBConnection/Scripts/generateReport.sql" dialect="MariaDB" />
+    <file url="file://$PROJECT_DIR$/src/main/java/JobPortal/DBConnection/Scripts/generateReviews.sql" dialect="MariaDB" />
+    <file url="file://$PROJECT_DIR$/src/main/java/JobPortal/DBConnection/Scripts/generateTrigger.sql" dialect="MariaDB" />
+    <file url="file://$PROJECT_DIR$/src/main/java/JobPortal/DBConnection/Scripts/setup.sql" dialect="MariaDB" />
+  </component>
+</project>

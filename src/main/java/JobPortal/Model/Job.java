@@ -4,9 +4,6 @@
  */
 package JobPortal.Model;
 
-/**
- * @author RIX
- */
 public class Job {
 
     private String Location, Iplace, deadline, salary, title, company, ComID, ID, About, Requirement, Type;

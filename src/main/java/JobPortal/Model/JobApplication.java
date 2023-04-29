@@ -3,11 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package JobPortal.Model;
-
-/**
- *
- * @author RIX
- */
 public class JobApplication {
 
     private String Jid, Eid, Approved, ComID;
