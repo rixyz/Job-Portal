@@ -1,9 +1,12 @@
 package JobPortal;
 
+import io.github.cdimascio.dotenv.Dotenv;
+
 public class Creds {
-    protected String SMTP_EMAIL = "";
-    protected String SMTP_PASS = "";
-    protected static String DB_URL = "jdbc:mysql://localhost:3306/jobportal";
-    protected static String DB_USER = "root";
-    protected static String DB_PASS = "";
+    private static final Dotenv dotenv = Dotenv.load();
+    protected static String SMTP_EMAIL = dotenv.get("SMTP_EMAIL");
+    protected static String SMTP_PASS = dotenv.get("SMTP_PASS");
+    protected static String DB_URL = dotenv.get("DB_URL");
+    protected static String DB_USER = dotenv.get("DB_USER");
+    protected static String DB_PASS = dotenv.get("DB_PASS");
 }

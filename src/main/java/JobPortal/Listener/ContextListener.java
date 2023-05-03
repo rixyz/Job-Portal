@@ -11,6 +11,7 @@ public class ContextListener implements ServletContextListener {
         System.out.println("======================================");
         System.out.println("Shutting down");
         System.out.println("======================================");
+        AdminService.setEnv();
     }
 
     @Override

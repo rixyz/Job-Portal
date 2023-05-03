@@ -3,6 +3,8 @@ package JobPortal.Service;
 import JobPortal.Model.ReportData;
 import JobPortal.Model.Sessions;
 import JobPortal.DBConnection.SqlConnection;
+import io.github.cdimascio.dotenv.Dotenv;
+import io.github.cdimascio.dotenv.DotenvEntry;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -29,7 +31,7 @@ public class AdminService {
         String[] monthsName = new String[12];
         int i = 0;
         try (Connection con = SqlConnection.dbConnector();
-             PreparedStatement st = con.prepareStatement("SELECT employee_count, company_count, job_count, application_count, job_success, month FROM report ORDER BY IF(month > MONTH(CURRENT_DATE), month - MONTH(CURRENT_DATE), month + (12 - MONTH(CURRENT_DATE)))");
+             PreparedStatement st = con.prepareStatement("SELECT employee_count, company_count, job_count, application_count, job_success, MONTH FROM report ORDER BY IF(MONTH > MONTH(CURRENT_DATE), MONTH - MONTH(CURRENT_DATE), MONTH + (12 - MONTH(CURRENT_DATE)))");
              ResultSet rs = st.executeQuery()) {
             while (rs.next()) {
                 employeeCount[i] = rs.getInt("employee_count");
@@ -84,7 +86,7 @@ public class AdminService {
      */
     public static void setSession(String id, String type) {
         try (Connection con = SqlConnection.dbConnector();
-             PreparedStatement st = con.prepareStatement("INSERT INTO sessions(UserID, Type, Time) VALUES (?,?,NOW())ON DUPLICATE KEY UPDATE Time=NOW()")) {
+             PreparedStatement st = con.prepareStatement("INSERT INTO sessions(UserID, Type, Time) VALUES (?,?,NOW())ON DUPLICATE KEY UPDATE TIME=NOW()")) {
             st.setString(1, id);
             st.setString(2, type);
             //Execute Statement
@@ -116,12 +118,24 @@ public class AdminService {
      */
     public static void invalidateSession(String ID, String type) {
         try (Connection con = SqlConnection.dbConnector();
-             PreparedStatement st = con.prepareStatement("DELETE FROM sessions WHERE UserID=? & Type=?")) {
+             PreparedStatement st = con.prepareStatement("DELETE FROM sessions WHERE UserID=? & TYPE=?")) {
             st.setString(1, ID);
             st.setString(2, type);
             st.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static void setEnv() {
+        Dotenv dotenv = Dotenv.load();
+        for (DotenvEntry e : dotenv.entries()) {
+            System.out.println(e);
+        }
+        System.out.printf(
+                "Hello World. Shell is: %s. Name is: %s%n",
+                System.getenv("SHELL"),
+                dotenv.get("DB_URL")
+        );
     }
 }
