@@ -1,6 +1,6 @@
 package JobPortal.Mail;
 
-import JobPortal.Creds;
+import JobPortal.Config;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -11,7 +11,7 @@ import java.net.Socket;
 import java.net.SocketAddress;
 import java.util.Properties;
 
-public class SendMail extends Creds {
+public class SendMail {
     private final static String host = "smtp.gmail.com";
 
     public SendMail(String to, String subject, String text) {
@@ -20,7 +20,6 @@ public class SendMail extends Creds {
             System.out.println("SMTP not available, Skipping mail!");
             return;
         }
-
         // Get system properties
         Properties properties = System.getProperties();
         // Setup mail server
@@ -31,14 +30,14 @@ public class SendMail extends Creds {
         // Get the Session object.// and pass username and password
         Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(SMTP_EMAIL, SMTP_PASS);
+                return new PasswordAuthentication(Config.getConfig("SMTP_EMAIL"), Config.getConfig("SMTP_PASS"));
             }
         });
         try {
             // Create a default MimeMessage object.
             MimeMessage message = new MimeMessage(session);
             // Set From: header field of the header.
-            message.setFrom(new InternetAddress(SMTP_EMAIL));
+            message.setFrom(new InternetAddress(Config.getConfig("SMTP_EMAIL")));
             // Set To: header field of the header.
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
             // Set Subject: header field

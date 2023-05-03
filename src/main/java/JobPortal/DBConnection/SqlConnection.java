@@ -4,14 +4,14 @@
  */
 package JobPortal.DBConnection;
 
-import JobPortal.Creds;
+import JobPortal.Config;
 import com.mysql.cj.jdbc.exceptions.CommunicationsException;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class SqlConnection extends Creds {
+public class SqlConnection {
     /**
      * Connect to MySQL server
      *
@@ -20,7 +20,7 @@ public class SqlConnection extends Creds {
     public static Connection dbConnector() throws SQLException {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            return DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+            return DriverManager.getConnection(Config.getConfig("DB_URL"), Config.getConfig("DB_USER"), Config.getConfig("DB_PASS"));
         } catch (CommunicationsException ex) {
             throw new SQLException("Database service not found", ex);
         } catch (ClassNotFoundException | SQLException ex) {
