@@ -66,11 +66,9 @@
     <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/boot/css/flaticon.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/boot/css/slicknav.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/boot/css/animate.min.css">
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/boot/css/magnific-popup.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/boot/css/fontawesome-all.min.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/boot/css/themify-icons.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/boot/css/slick.css">
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/boot/css/nice-select.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/boot/css/style.css">
 </head>
 
@@ -110,7 +108,7 @@
                                 class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
                                 id=" user-menu-button"
                                 onclick="location.href='<%=request.getContextPath()%>/employee/profile';"
-                        " aria-expanded="false" aria-haspopup="true">
+                        aria-expanded="false" aria-haspopup="true">
                         <img class="h-10 w-10 rounded-full"
                              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=forma"
                              alt="">
@@ -227,7 +225,7 @@
                         <div>
                             <%
                                 if (R != null) {
-                                    int user = 0, sum = 0;
+                                    int user = 0;
                                     for (Review r : R) {
                                         user++;
                                         int rate = r.getRating();
@@ -293,8 +291,6 @@
                     <a href="#" target="_blank" rel="noreferrer" class="text-gray-300 hover:underline">Facebook
                     </a>
                 </li>
-                <a href="#" target="_blank" rel="noreferrer" class="text-gray-300 hover:underline">
-                </a>
                 <li class="mb-4"><a href="#" target="_blank" rel="noreferrer" class="text-gray-300 hover:underline">
                 </a><a href="#" target="_blank" rel="noreferrer" class="text-gray-300 hover:underline">Contact
                     Us</a>
@@ -390,21 +386,12 @@
 <script src="<%=request.getContextPath()%>/assets/boot/js/price_rangs.js"></script>
 <!-- One Page, Animated-HeadLin -->
 <script src="<%=request.getContextPath()%>/assets/boot/js/wow.min.js"></script>
-<script src="<%=request.getContextPath()%>/assets/boot/js/animated.headline.js"></script>
 <script src="<%=request.getContextPath()%>/assets/boot/js/jquery.magnific-popup.js"></script>
 
 <!-- Scrollup, nice-select, sticky -->
 <script src="<%=request.getContextPath()%>/assets/boot/js/jquery.scrollUp.min.js"></script>
 <script src="<%=request.getContextPath()%>/assets/boot/js/jquery.nice-select.min.js"></script>
 <script src="<%=request.getContextPath()%>/assets/boot/js/jquery.sticky.js"></script>
-
-<!-- contact js -->
-<script src="<%=request.getContextPath()%>/assets/boot/js/contact.js"></script>
-<script src="<%=request.getContextPath()%>/assets/boot/js/jquery.form.js"></script>
-<script src="<%=request.getContextPath()%>/assets/boot/js/jquery.validate.min.js"></script>
-<script src="<%=request.getContextPath()%>/assets/boot/js/mail-script.js"></script>
-<script src="<%=request.getContextPath()%>/assets/boot/js/jquery.ajaxchimp.min.js"></script>
-
 <!-- Jquery Plugins, main Jquery -->
 <script src="<%=request.getContextPath()%>/assets/boot/js/plugins.js"></script>
 <script src="<%=request.getContextPath()%>/assets/boot/js/main.js"></script>

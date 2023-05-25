@@ -1,10 +1,8 @@
 package JobPortal.Service;
 
+import JobPortal.DBConnection.SqlConnection;
 import JobPortal.Model.ReportData;
 import JobPortal.Model.Sessions;
-import JobPortal.DBConnection.SqlConnection;
-import io.github.cdimascio.dotenv.Dotenv;
-import io.github.cdimascio.dotenv.DotenvEntry;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -125,17 +123,5 @@ public class AdminService {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    public static void setEnv() {
-        Dotenv dotenv = Dotenv.load();
-        for (DotenvEntry e : dotenv.entries()) {
-            System.out.println(e);
-        }
-        System.out.printf(
-                "Hello World. Shell is: %s. Name is: %s%n",
-                System.getenv("SHELL"),
-                dotenv.get("DB_URL")
-        );
     }
 }

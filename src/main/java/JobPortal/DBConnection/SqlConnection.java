@@ -19,13 +19,18 @@ public class SqlConnection {
      */
     public static Connection dbConnector() throws SQLException {
         try {
+            //jdbc:mysql://localhost:3306/jobportal
             Class.forName("com.mysql.cj.jdbc.Driver");
+            System.out.println(Config.getConfig("DB_URL") + Config.getConfig("DB_USER") + Config.getConfig("DB_PASS"));
             return DriverManager.getConnection(Config.getConfig("DB_URL"), Config.getConfig("DB_USER"), Config.getConfig("DB_PASS"));
         } catch (CommunicationsException ex) {
             throw new SQLException("Database service not found", ex);
         } catch (ClassNotFoundException | SQLException ex) {
             throw new SQLException("Failed to connect to database", ex);
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
+        return null;
     }
 
 }

@@ -18,7 +18,6 @@ public class ContextListener implements ServletContextListener {
         System.out.println("======================================");
         System.out.println("Turning on");
         System.out.println("======================================");
-        AdminService.setEnv();
         AdminService.clearSession();
     }
 }

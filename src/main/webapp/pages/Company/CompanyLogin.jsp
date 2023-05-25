@@ -31,13 +31,6 @@
             background: #555;
         }
 
-        .warning {
-            border: 1px solid red !important;
-        }
-
-        .green {
-            background-color: green !important;
-        }
     </style>
 </head>
 
@@ -302,7 +295,6 @@
     </div>
 </div>
 <script type="text/javascript" src="<%=request.getContextPath()%>/assets/css/output.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/assets/js/alpine.min.js"></script>
 <script type="text/javascript" src="#"></script>
 <script type="text/javascript">
     var main = document.querySelectorAll(".main");
@@ -364,7 +356,7 @@
         });
     });
     log_eye.onclick = function () {
-        if (log_in_pass.type == "password") {
+        if (log_in_pass.type === "password") {
             log_in_pass.type = "text";
             log_eye.classList.remove("fa-eye-slash");
             logch_eye.classList.add("fa-eye");

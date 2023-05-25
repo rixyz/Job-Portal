@@ -18,7 +18,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>User Login</title>
     <link href="<%=request.getContextPath()%>/assets/boot/css/fontawesome-all.min.css" rel="stylesheet"/>
-    <script type="text/javascript" src="<%=request.getContextPath()%>/assets/js/jquery.min.js"></script>
     <style>
         ::-webkit-scrollbar {
             width: 8px;
@@ -350,7 +349,6 @@
     </div>
 </div>
 <script type="text/javascript" src="<%=request.getContextPath()%>/assets/css/output.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/assets/js/alpine.min.js"></script>
 <script type="text/javascript">
     let main = document.querySelectorAll(".main");
     let signup_page = document.querySelector(".signup");

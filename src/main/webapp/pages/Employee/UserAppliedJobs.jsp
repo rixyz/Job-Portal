@@ -22,12 +22,10 @@
     <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/boot/css/flaticon.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/boot/css/slicknav.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/boot/css/animate.min.css">
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/boot/css/magnific-popup.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/boot/css/fontawesome-all.min.css">
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/boot/css/themify-icons.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/boot/css/slick.css">
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/boot/css/nice-select.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/boot/css/style.css">
 </head>
 
@@ -190,7 +188,7 @@
                                             <form action="<%=request.getContextPath()%>/employee/jobs/unapply/<%=j.getID()%>"
                                                   method="post">
                                                 <button class="bg-red-500 border-white text-white py-2 px-4 rounded-full">
-                                                    </i> Unapply
+                                                     Unapply
                                                 </button>
                                             </form>
                                         </div>
@@ -249,7 +247,7 @@
                             </div>
                             <%}%>
 
-
+<%--Ignore Error Produce here--%>
                         </div>
                 </div>
 
@@ -274,7 +272,6 @@
 
 
 </main>
-</div>
 <footer class="bg-gray-800">
     <div class="grid grid-cols-2 gap-8 py-8 px-6 md:grid-cols-4">
         <div>
@@ -309,8 +306,6 @@
                     <a href="#" target="_blank" rel="noreferrer" class="text-gray-300 hover:underline">Facebook
                     </a>
                 </li>
-                <a href="#" target="_blank" rel="noreferrer" class="text-gray-300 hover:underline">
-                </a>
                 <li class="mb-4"><a href="#" target="_blank" rel="noreferrer" class="text-gray-300 hover:underline">
                 </a><a href="#" target="_blank" rel="noreferrer" class="text-gray-300 hover:underline">Contact
                     Us</a>
@@ -407,21 +402,12 @@
 <script src="<%=request.getContextPath()%>/assets/boot/js/price_rangs.js"></script>
 <!-- One Page, Animated-HeadLin -->
 <script src="<%=request.getContextPath()%>/assets/boot/js/wow.min.js"></script>
-<script src="<%=request.getContextPath()%>/assets/boot/js/animated.headline.js"></script>
 <script src="<%=request.getContextPath()%>/assets/boot/js/jquery.magnific-popup.js"></script>
 
 <!-- Scrollup, nice-select, sticky -->
 <script src="<%=request.getContextPath()%>/assets/boot/js/jquery.scrollUp.min.js"></script>
 <script src="<%=request.getContextPath()%>/assets/boot/js/jquery.nice-select.min.js"></script>
 <script src="<%=request.getContextPath()%>/assets/boot/js/jquery.sticky.js"></script>
-
-<!-- contact js -->
-<script src="<%=request.getContextPath()%>/assets/boot/js/contact.js"></script>
-<script src="<%=request.getContextPath()%>/assets/boot/js/jquery.form.js"></script>
-<script src="<%=request.getContextPath()%>/assets/boot/js/jquery.validate.min.js"></script>
-<script src="<%=request.getContextPath()%>/assets/boot/js/mail-script.js"></script>
-<script src="<%=request.getContextPath()%>/assets/boot/js/jquery.ajaxchimp.min.js"></script>
-
 <!-- Jquery Plugins, main Jquery -->
 <script src="<%=request.getContextPath()%>/assets/boot/js/plugins.js"></script>
 <script src="<%=request.getContextPath()%>/assets/boot/js/main.js"></script>
