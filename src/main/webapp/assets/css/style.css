@@ -1,3 +1,6 @@
+@charset "UTF-8";
+@import "//fonts.googleapis.com/css?family=Open+Sans";
+
 #particles-js {
     z-index: -1;
     position: absolute;
@@ -9,8 +12,6 @@ table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sor
     content: " \25B4\25BE"
 }
 
-@charset "UTF-8";
-@import "//fonts.googleapis.com/css?family=Open+Sans";
 .steps {
     list-style: none;
     margin: 0;

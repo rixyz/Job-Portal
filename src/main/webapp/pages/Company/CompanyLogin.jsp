@@ -294,7 +294,7 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="<%=request.getContextPath()%>/assets/css/output.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
 <script type="text/javascript" src="#"></script>
 <script type="text/javascript">
     var main = document.querySelectorAll(".main");

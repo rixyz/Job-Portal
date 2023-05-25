@@ -348,7 +348,7 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="<%=request.getContextPath()%>/assets/css/output.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
 <script type="text/javascript">
     let main = document.querySelectorAll(".main");
     let signup_page = document.querySelector(".signup");

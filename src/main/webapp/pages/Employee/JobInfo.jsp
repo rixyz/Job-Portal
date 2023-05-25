@@ -28,7 +28,7 @@
             color: #0056b3;
         }
     </style>
-    <script src="<%=request.getContextPath()%>/assets/css/output.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/assets/css/style.css">
     <!-- CSS here -->
     <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/boot/css/bootstrap.min.css">
@@ -369,7 +369,6 @@
 <script src="<%=request.getContextPath()%>/assets/boot/js/price_rangs.js"></script>
 <!-- One Page, Animated-HeadLin -->
 <script src="<%=request.getContextPath()%>/assets/boot/js/wow.min.js"></script>
-<script src="<%=request.getContextPath()%>/assets/boot/js/jquery.magnific-popup.js"></script>
 
 <!-- Scrollup, nice-select, sticky -->
 <script src="<%=request.getContextPath()%>/assets/boot/js/jquery.scrollUp.min.js"></script>
